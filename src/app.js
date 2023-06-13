@@ -1,7 +1,6 @@
 import express from 'express';
 import handlebars from 'express-handlebars';
 import { Server } from 'socket.io';
-import productRouter from './routers/product.router.js';
 import * as path from 'path'
 import __dirname from './utils.js';
 
@@ -18,7 +17,9 @@ app.set('view engine', 'handlebars')
 app.set('views', path.resolve(__dirname+'/views'))
 app.use(express.static(path.resolve(__dirname+'/public')))
 
-app.use('/', (req,res)=> res.render('layouts/main'))
+app.use('/', async(req,res)=> res.render('./partials/home',{}))
+
+
 
 //const messages = []
 
